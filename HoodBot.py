@@ -22,6 +22,8 @@ from discord.message import *
 # TOKEN
 token = 'ODc0NTgwNDcxMzc4NDk3NTY2.YRJCiQ.kMbKr9ElaZ8ZLy5HMVFpt6BnTZ0'
 
+# clear the terminal
+
 
 def cls():
     os.system("cls")
@@ -32,7 +34,8 @@ cls()
 # id's
 # Client (My bot)
 bot = commands.Bot(command_prefix=".")
-# The script
+
+# on start type "Bot is on"
 
 
 @bot.event
@@ -41,10 +44,14 @@ async def on_ready():
 
 # start ~~~~~~~~~~~~~~~~~~~~~
 
+# .boost command send "תנו בוסט לשרת"
+
 
 @bot.command()
 async def boost(ctx):
     await ctx.send("תנו בוסט לשרת")
+
+# .clear <number-of-massages-to-clear> command
 
 
 @bot.command(pass_context=True)
@@ -62,10 +69,7 @@ async def clear(ctx, limit: int = None):
     cls()
     print(f"[Complete] Removed {passed} messages with {failed} fails")
 
-
-# This is the code needed to give a user a role
-@bot.command()
-async def name(ctx, *, member: discord.Member): await ctx.send(member)
+# slap command [On beta]
 
 
 @bot.command()
@@ -76,7 +80,7 @@ async def slap(ctx, member: discord.Member, *, reason='no reason'):
 
 
 @bot.command()
-@has_permissions(ban_members=True, kick_members=True)
+@has_role("A+")
 async def addrole(ctx, member: discord.Member, role2):
     role = discord.utils.get(ctx.guild.roles, name=role2)
     try:
@@ -86,7 +90,7 @@ async def addrole(ctx, member: discord.Member, role2):
         await ctx.send(f"""Sorry the command failed to add the role {role}""")
         await ctx.send("If you don't know what the fuck r you doing type .addrole_h")
 
-# mute
+# mute [only gives the role mute does not removes the roles, does not removes the role mute after a time]
 
 
 @bot.command(pass_context=True)
@@ -100,7 +104,7 @@ async def mute(ctx, member: discord.Member, timelong):
     time.wait(timelong)
     await member.add_roles(role)
 
-# mute 2
+# mute 2 [beta]
 
 
 @bot.command()
