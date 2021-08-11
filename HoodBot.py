@@ -107,15 +107,16 @@ async def mute(ctx, member: discord.Member, timelong):
 # mute 2 [beta]
 
 
-@bot.command()
-@has_permissions(ban_members=True, kick_members=True)
-async def mutetest(ctx, member: discord.Member):
+@bot.command(pass_context=True)
+@commands.has_role('A+')
+async def mute2(ctx, member: discord.Member, timelong):
+    role = get(ctx.guild.roles, name='member')
+    await member.remove_roles(member, role)
     mute = discord.utils.get(ctx.guild.roles, name="🔇-Muted-🔇")
-    try:
-        await member.add_roles(role)
-        await ctx.send(f"""The command was successful add the user {member} was muted""")
-    except:
-        await ctx.send(f"""Sorry the command failed to add the role {role}""")
+    await member.add_roles(mute)
+    await bot.say("{} has been muted from chat".format(member.name))
+    time.wait(timelong)
+    await member.add_roles(role)
 
 
 @bot.command()
