@@ -146,6 +146,13 @@ async def imcool(ctx):
         await asyncio.sleep(3)
 
 
+# ip command [Coming soon]
+
+
+@bot.command()
+async def ip(ctx):
+    await ctx.send("FiveM ip: Coming Soon... | TokoVoip: Coming Soon...")
+
 # end ~~~~~~~~~~~~~~~~~~~~~~~
 # Run the bot on the server.
 try:
