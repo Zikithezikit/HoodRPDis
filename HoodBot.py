@@ -152,7 +152,7 @@ async def imcool(ctx):
 @bot.command()
 async def ip(ctx):
     await ctx.send("""FiveM ip: Coming Soon... 
-     TokoVoip: Coming Soon...""")
+TokoVoip: Coming Soon...""")
 
 # end ~~~~~~~~~~~~~~~~~~~~~~~
 # Run the bot on the server.
