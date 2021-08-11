@@ -99,7 +99,7 @@ async def mute(ctx, member: discord.Member):
     mute = discord.utils.get(ctx.guild.roles, name="🔇-Muted-🔇")
     try:
         await member.add_roles(mute)
-        await bot.say("{member} has been muted from chat")
+        await ctx.send("{member} has been muted from chat")
     except:
         await ctx.send("Sorry the command failed pls try again")
 # mute 2 [beta]
