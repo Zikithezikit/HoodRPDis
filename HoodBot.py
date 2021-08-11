@@ -64,8 +64,14 @@ async def clear(ctx, limit: int = None):
             try:
                 await msg.delete()
                 passed += 1
+                cls()
+                print(
+                    f"[Complete] Removed {passed} messages with {failed} fails")
             except:
                 failed += 1
+                cls()
+                print(
+                    f"[Complete] Removed {passed} messages with {failed} fails")
     cls()
     print(f"[Complete] Removed {passed} messages with {failed} fails")
 
@@ -99,7 +105,7 @@ async def mute(ctx, member: discord.Member):
     mute = discord.utils.get(ctx.guild.roles, name="🔇-Muted-🔇")
     try:
         await member.add_roles(mute)
-        await ctx.send("{member} has been muted from chat")
+        await ctx.send(f"{member} has been muted from chat")
     except:
         await ctx.send("Sorry the command failed pls try again")
 # mute 2 [beta]
