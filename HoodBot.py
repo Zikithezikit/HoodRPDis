@@ -58,22 +58,26 @@ async def boost(ctx):
 async def clear(ctx, limit: int = None):
     passed = 0
     failed = 0
-    limit += 1
-    async for msg in ctx.message.channel.history(limit=limit):
-        if 1 > 0:
-            try:
-                await msg.delete()
-                passed += 1
-                cls()
-                print(
-                    f"[Complete] Removed {passed} messages with {failed} fails")
-            except:
-                failed += 1
-                cls()
-                print(
-                    f"[Complete] Removed {passed} messages with {failed} fails")
-    cls()
-    print(f"[Complete] Removed {passed} messages with {failed} fails")
+    if limit == 0 or limit == None:
+        await ctx.send("Sorry you didn't add a number after the command .clear {}")
+    else:
+        limit += 1
+        async for msg in ctx.message.channel.history(limit=limit):
+            if 1 > 0:
+                try:
+                    await msg.delete()
+                    passed += 1
+                    cls()
+                    print(
+                        f"[Complete] Removed {passed} messages with {failed} fails")
+                except:
+                    failed += 1
+                    cls()
+                    print(
+                        f"[Complete] Removed {passed} messages with {failed} fails")
+        cls()
+        print(f"[Complete] Removed {passed} messages with {failed} fails")
+
 
 # slap command [On beta]
 
