@@ -40,7 +40,7 @@ bot = commands.Bot(command_prefix=".")
 
 @bot.event
 async def on_ready():
-    print("> Bot in on .imcool :)")
+    print("> Bot in online.")
 
 # start ~~~~~~~~~~~~~~~~~~~~~
 
@@ -185,4 +185,4 @@ TokoVoip: Coming Soon...""")
 try:
     bot.run(token)
 except:
-    print("> Bot is off and dailed to lunch.")
+    print("> Bot has failed to start the token is wrong.")
