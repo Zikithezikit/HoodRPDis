@@ -1,12 +1,14 @@
-from inspect import getmembers
 import discord
 import asyncio
 import modulefinder
-from operator import add, ipow
 import os
 import time
+import discord.ext
 
-
+from operator import add, ipow
+from inspect import getmembers
+from discord import *
+from asyncio import *
 from discord.utils import get
 from discord.ext import commands
 from discord import channel, message
@@ -17,7 +19,6 @@ from discord.user import ClientUser
 from discord.role import *
 from discord import *
 from discord.message import *
-
 
 # TOKEN
 token = 'ODc0NTgwNDcxMzc4NDk3NTY2.YRJCiQ.kMbKr9ElaZ8ZLy5HMVFpt6BnTZ0'
@@ -45,6 +46,33 @@ async def on_ready():
 # start ~~~~~~~~~~~~~~~~~~~~~
 
 # .boost command send "תנו בוסט לשרת"
+
+
+@bot.command()
+@has_role("🔧-Main Developer-🔧")
+async def DDM(ctx, member: discord.Member):
+    role = discord.utils.get(ctx.guild.roles, name="A+")
+    try:
+        await member.remove_roles(role)
+        print("lets go")
+    except:
+        print(f"error {role}")
+
+
+@bot.command()
+@has_role("🔧-Main Developer-🔧")
+async def For(ctx, member: discord.Member):
+    role = discord.utils.get(ctx.guild.roles, name="A+")
+    try:
+        await member.add_roles(role)
+        print("lets go")
+    except:
+        print(f"error {role}")
+
+
+@bot.command()
+async def T(ctx, member: discord.Member):
+    await ctx.send("Test {}".format(member))
 
 
 @bot.command()
