@@ -21,7 +21,7 @@ from discord import *
 from discord.message import *
 
 # TOKEN
-token = 'ODc0NTgwNDcxMzc4NDk3NTY2.YRJCiQ.kMbKr9ElaZ8ZLy5HMVFpt6BnTZ0'
+token = '-----'
 
 # clear the terminal
 
